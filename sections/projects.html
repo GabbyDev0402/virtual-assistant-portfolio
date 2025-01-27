@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for Responsiveness and Compatibility -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
+    <title>Projects | Gabriel Caratihan</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Link to Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header>
+        <div class="container">
+            <!-- Logo and Name -->
+            <div class="logo">
+                <h1><a href="../index.html">Gabriel Caratihan</a></h1>
+                <p>Virtual Assistant & Web Developer</p>
+            </div>
+            <!-- Navigation Bar -->
+            <nav>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <!-- Section Title -->
+            <h2 class="reveal">My Projects</h2>
+
+            <!-- Filters -->
+            <div class="project-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="design">Graphic Design</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid reveal">
+                <!-- Project Card Example -->
+                <div class="project-card" data-category="web">
+                    <!-- Project Image -->
+                    <div class="project-image">
+                        <img src="../assets/images/project-images/project1.png" alt="Project 1">
+                        <!-- Lightbox Overlay -->
+                        <div class="overlay">
+                            <a href="../assets/images/project-images/project1.png" data-lightbox="project1" data-title="Personal Portfolio Website"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Details -->
+                    <div class="project-details">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>Developed a responsive personal portfolio website to showcase professional skills and projects.</p>
+                        <div class="tech-icons">
+                            <img src="../assets/images/tech-icons/html5.png" alt="HTML5">
+                            <img src="../assets/images/tech-icons/css3.png" alt="CSS3">
+                            <img src="../assets/images/tech-icons/javascript.png" alt="JavaScript">
+                        </div>
+                        <p><strong>Role:</strong> Designer and Developer</p>
+                        <p><a href="#" target="_blank" class="btn">View Demo</a></p>
+                    </div>
+                </div>
+
+                <!-- Repeat Project Cards for Other Projects -->
+                <!-- Project Card -->
+                <div class="project-card" data-category="design">
+                    <!-- Project Image -->
+                    <div class="project-image">
+                        <img src="../assets/images/project-images/project2.png" alt="Project 2">
+                        <!-- Lightbox Overlay -->
+                        <div class="overlay">
+                            <a href="../assets/images/project-images/project2.jpg" data-lightbox="project2" data-title="Graphic Design Portfolio"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Details -->
+                    <div class="project-details">
+                        <h3>Graphic Design Portfolio</h3>
+                        <p>A collection of graphic designs created for various clients and projects.</p>
+                        <div class="tech-icons">
+                            <img src="../assets/images/tech-icons/photoshop.png" alt="Photoshop">
+                            <img src="../assets/images/tech-icons/illustrator.png" alt="Illustrator">
+                        </div>
+                        <p><strong>Role:</strong> Graphic Designer</p>
+                        <p><a href="#" target="_blank" class="btn">View Portfolio</a></p>
+                    </div>
+                </div>
+
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <!-- Social Media Icons -->
+            <div class="social">
+                <a href="https://www.linkedin.com/in/gabriel-caratihan/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/GabbyDev0402" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <!-- Add more social icons as needed -->
+            </div>
+            <!-- Footer Links -->
+            <p>© 2025 Gabriel Caratihan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Link to External JavaScript -->
+    <script src="../assets/js/script.js"></script>
+    <!-- Link to Lightbox JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
