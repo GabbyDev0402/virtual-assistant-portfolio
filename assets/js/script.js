@@ -1,10 +1,9 @@
-// JavaScript for Smooth Scrolling and Interactivity
+// assets/js/script.js
 
 // Smooth Scrolling Functionality
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        // Scroll to the target element smoothly
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
@@ -12,8 +11,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // JavaScript for Reveal Animations
-
-// Function to check if an element is in viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -22,7 +19,6 @@ function isInViewport(element) {
     );
 }
 
-// Function to add 'reveal' class to elements in viewport
 function revealElements() {
     const reveals = document.querySelectorAll('.reveal');
     for (let i = 0; i < reveals.length; i++) {
@@ -32,37 +28,12 @@ function revealElements() {
     }
 }
 
-// Event Listener for scrolling
 window.addEventListener('scroll', revealElements);
 
-// Add 'reveal' class to elements you want to animate
-
-// JavaScript for Smooth Scrolling and Interactivity
-
-// Smooth Scrolling Functionality
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Scroll to the target element smoothly
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// JavaScript for Reveal Animations (Existing Code)
-
-// ... (Existing reveal animations code)
-
 // JavaScript for Service Modals
-
-// Get all the 'Learn More' buttons
 const detailsButtons = document.querySelectorAll('.details-btn');
-
-// Get the modal container
 const modalContainer = document.getElementById('modal-container');
 
-// Service Details Data
 const servicesData = {
     'customer-service': {
         title: 'Customer Service',
@@ -149,7 +120,6 @@ const servicesData = {
     }
 };
 
-// Event Listener for 'Learn More' buttons
 detailsButtons.forEach(button => {
     button.addEventListener('click', () => {
         const serviceKey = button.getAttribute('data-service');
@@ -157,14 +127,12 @@ detailsButtons.forEach(button => {
     });
 });
 
-// Show Modal Function
 function showModal(serviceKey) {
     const service = servicesData[serviceKey];
 
-    // Create Modal Content
     const modalContent = `
         <div class="modal">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal">×</span>
             <h3>${service.title}</h3>
             <p>${service.description}</p>
             <ul>
@@ -173,19 +141,14 @@ function showModal(serviceKey) {
         </div>
     `;
 
-    // Insert Modal Content into Modal Container
     modalContainer.innerHTML = modalContent;
-
-    // Display the Modal
     modalContainer.style.display = 'block';
 
-    // Close Modal Event
     const closeModal = document.querySelector('.close-modal');
     closeModal.addEventListener('click', () => {
         modalContainer.style.display = 'none';
     });
 
-    // Close Modal When Clicking Outside the Modal
     window.addEventListener('click', (e) => {
         if (e.target === modalContainer) {
             modalContainer.style.display = 'none';
@@ -193,56 +156,58 @@ function showModal(serviceKey) {
     });
 }
 
+// assets/js/script.js - JavaScript for Project Category Filtering
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
 
-// JavaScript for Reveal Animations
+            const filterValue = this.getAttribute('data-filter');
 
-// Existing reveal animation code...
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
 
-// Lightbox Initialization
-// (Lightbox2 initializes automatically with default settings)
 
 // JavaScript for Contact Form Validation and Submission
-
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     const thankYouMessage = document.getElementById('thankYouMessage');
 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
-        // Clear previous errors
         clearErrors();
-
-        // Validate form fields
         const isValid = validateForm();
 
         if (isValid) {
-            // Show thank-you message
             contactForm.style.display = 'none';
             thankYouMessage.style.display = 'block';
-
-            // Here, add code to send the form data to your email or server
-            // You can use EmailJS or Formspree for handling the form submission without server-side code
         }
     });
 
     function validateForm() {
         let valid = true;
-
-        // Get form values
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const subject = document.getElementById('subject').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        // Validate Name
         if (name === '') {
             showError('nameError', 'Please enter your name');
             valid = false;
         }
 
-        // Validate Email
         if (email === '') {
             showError('emailError', 'Please enter your email');
             valid = false;
@@ -251,13 +216,11 @@ document.addEventListener('DOMContentLoaded', function() {
             valid = false;
         }
 
-        // Validate Subject
         if (subject === '') {
             showError('subjectError', 'Please enter a subject');
             valid = false;
         }
 
-        // Validate Message
         if (message === '') {
             showError('messageError', 'Please enter your message');
             valid = false;
@@ -277,25 +240,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function isValidEmail(email) {
-        // Simple email validation regex
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
 });
 
 // JavaScript for Testimonial Slider
-
-// JavaScript for Testimonial Slider
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Variables
     const testimonials = document.querySelectorAll('.testimonial-item');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const dotsContainer = document.querySelector('.testimonial-dots');
     let currentIndex = 0;
 
-    // Function to Show Testimonial
     function showTestimonial(index) {
         testimonials.forEach((testimonial, i) => {
             testimonial.classList.toggle('active', i === index);
@@ -303,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Create Navigation Dots
     function createDots() {
         testimonials.forEach(() => {
             const dot = document.createElement('span');
@@ -311,7 +267,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Event Listeners for Navigation Arrows
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex === 0) ? testimonials.length - 1 : currentIndex - 1;
         showTestimonial(currentIndex);
@@ -322,7 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showTestimonial(currentIndex);
     });
 
-    // Event Listeners for Navigation Dots
     function addDotListeners() {
         const dots = dotsContainer.children;
         for (let i = 0; i < dots.length; i++) {
@@ -333,7 +287,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize Slider
     function initSlider() {
         if (testimonials.length > 0) {
             createDots();

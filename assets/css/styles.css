@@ -23,11 +23,12 @@ body {
 header {
     width: 100%;
     background-color: #fff;
-    position: fixed; /* Sticky Navigation Bar */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 80px;
 }
 
 header .container {
@@ -74,7 +75,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 150px 0 100px 0; /* Extra top padding to accommodate fixed header */
+    padding: 150px 0 100px 0;
     background-color: #e6f0ff;
 }
 
@@ -103,17 +104,41 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-.hero-text .btn {
+/* General Button Styles - Applied to both "View Demo" and "View Code" buttons */
+.btn {
     padding: 10px 20px;
-    background-color: #004080;
-    color: #fff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    display: inline-block; /* To allow margin on all sides and proper button behavior */
+    border: 2px solid #004080; /* ADDED: 2px solid border with theme color */
+    font-weight: bold; /* Make button text bold */
+    cursor: pointer; /* Indicate it's clickable */
+    text-align: center; /* Center text within the button */
 }
 
-.hero-text .btn:hover {
+/* "View Demo" Button Styles (Blue) - Targetting specifically within project details to avoid conflicts */
+.project-details .btn {
+    background-color: #004080;
+    color: #fff;
+    border-color: #004080; /* Ensure border color matches background */
+}
+
+.project-details .btn:hover {
     background-color: #003366;
+    border-color: #003366; /* Ensure hover border color matches hover background */
+}
+
+/* "View Code" Button Styles (Green) - Targeting specifically within project details and after "View Demo" */
+.project-details p .view-code-btn { /* More specific selector */
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border-color: #4CAF50; /* Ensure border color matches background */
+}
+
+.project-details p .view-code-btn:hover {
+    background-color: #43A047; /* Darker green on hover */
+    border-color: #43A047; /* Ensure hover border color matches hover background */
 }
 
 /* Footer Styles */
@@ -141,11 +166,12 @@ footer p {
     color: #666;
 }
 
-/* Responsive Design */
+/* Responsive Design - Header and Hero Section */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
         text-align: center;
+        padding-top: 120px; /* Adjust padding for smaller screens */
     }
 
     .hero-image,
@@ -304,12 +330,12 @@ footer p {
     background-color: #4285f4;
 }
 
-/* Hover Effects */
+/* Hover Effects - Skills */
 .skill-card:hover .skill-level {
     opacity: 0.8;
 }
 
-/* Reveal Animations */
+/* Reveal Animations - General */
 .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -321,7 +347,7 @@ footer p {
     transform: translateY(0);
 }
 
-/* Responsive Design */
+/* Responsive Design - About Me Page */
 @media (max-width: 768px) {
     .about-grid {
         flex-direction: column;
@@ -343,7 +369,7 @@ footer p {
     background-color: #fff;
 }
 
-/* Section Title */
+/* Section Title - Resume */
 .resume h2 {
     font-size: 32px;
     color: #004080;
@@ -375,7 +401,7 @@ footer p {
     margin-right: 8px;
 }
 
-/* Resume Sections */
+/* Resume Sections - General */
 .resume-section {
     margin-bottom: 50px;
 }
@@ -399,7 +425,7 @@ footer p {
     line-height: 1.6;
 }
 
-/* Experience Items */
+/* Experience and Education Items */
 .experience-item,
 .education-item {
     margin-bottom: 30px;
@@ -445,7 +471,7 @@ footer p {
     color: #004080;
 }
 
-/* Responsive Design */
+/* Responsive Design - Resume Page */
 @media (max-width: 768px) {
     .resume h2 {
         font-size: 28px;
@@ -468,7 +494,7 @@ footer p {
 
 /* Services Page Styles */
 
-/* Section Title */
+/* Section Title - Services */
 .services h2,
 .service-packages h2 {
     font-size: 32px;
@@ -518,6 +544,7 @@ footer p {
     margin-bottom: 20px;
 }
 
+/* Details Button - Services */
 .details-btn {
     padding: 10px 20px;
     background-color: #004080;
@@ -530,7 +557,7 @@ footer p {
     background-color: #003366;
 }
 
-/* Service Packages */
+/* Service Packages Section */
 .service-packages .packages-grid {
     display: flex;
     flex-wrap: wrap;
@@ -589,7 +616,7 @@ footer p {
     background-color: #003366;
 }
 
-/* Contact Us Section */
+/* Contact Us Section - Services Page */
 .contact-us {
     text-align: center;
     margin-top: 50px;
@@ -615,7 +642,7 @@ footer p {
 
 /* Service Modal Styles */
 #modal-container {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -680,7 +707,7 @@ footer p {
     color: #004080;
 }
 
-/* Responsive Design */
+/* Responsive Design - Services Page */
 @media (max-width: 768px) {
     .service-card,
     .package-card {
@@ -690,7 +717,7 @@ footer p {
 
 /* Projects Page Styles */
 
-/* Section Title */
+/* Section Title - Projects Page */
 .projects h2 {
     font-size: 32px;
     color: #004080;
@@ -776,6 +803,7 @@ footer p {
     font-size: 32px;
 }
 
+/* Project Details Section */
 .project-details {
     padding: 20px;
     text-align: left;
@@ -803,19 +831,26 @@ footer p {
     margin-right: 5px;
 }
 
-.project-details .btn {
-    padding: 8px 15px;
-    background-color: #004080;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+/* "View Demo" Button Styles (Blue) - Reusing .btn class which is already defined */
+
+
+/* Spacing between buttons in Project Details */
+.project-details p:nth-of-type(even) {
+    margin-bottom: 10px;
 }
 
-.project-details .btn:hover {
-    background-color: #003366;
+/* "View Code" Button Styles (Green) - Targeting specifically within project details and after "View Demo" */
+.project-details p .view-code-btn { /* More specific selector */
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
 }
 
-/* Responsive Design */
+.project-details p .view-code-btn:hover {
+    background-color: #43A047; /* Darker green on hover */
+}
+
+
+/* Responsive Design - Projects Page */
 @media (max-width: 992px) {
     .project-card {
         flex: 1 1 calc(50% - 20px);
@@ -826,26 +861,6 @@ footer p {
     .project-card {
         flex: 1 1 100%;
     }
-}
-
-/* Contact Page Styles */
-
-/* Section Title */
-/* Header Styles */
-header {
-    width: 100%;
-    background-color: #fff;
-    position: fixed; /* Fixes the header at the top */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensures it's above other elements */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    height: 80px; /* Set the height */
-}
-
-/* Main Content */
-main {
-    padding-top: 80px; /* Adjust based on your nav bar height */
 }
 
 /* Contact Section */
@@ -878,7 +893,7 @@ main {
     margin-right: 10px;
 }
 
-/* Map */
+/* Map (Assuming you might have a map image placeholder) */
 .map {
     margin-bottom: 30px;
 }
@@ -915,7 +930,7 @@ main {
 }
 
 .contact-form form label span {
-    color: red;
+    color: red; /* For required fields asterisk */
 }
 
 .contact-form form input,
@@ -959,7 +974,7 @@ main {
     background-color: #003366;
 }
 
-/* Thank You Message */
+/* Thank You Message - Contact Form */
 #thankYouMessage {
     text-align: center;
     font-size: 18px;
@@ -967,7 +982,7 @@ main {
     margin-top: 20px;
 }
 
-/* Call-to-Action */
+/* Call-to-Action - Contact Page */
 .cta {
     text-align: center;
     margin-bottom: 30px;
@@ -991,7 +1006,7 @@ main {
     background-color: #003366;
 }
 
-/* Social Media Icons */
+/* Social Media Icons - Contact Page */
 .social-icons {
     text-align: center;
     margin-bottom: 30px;
@@ -1008,18 +1023,10 @@ main {
     color: #003366;
 }
 
-/* Footer */
-footer {
-    background-color: #fff;
-    padding: 20px 0;
-}
+/* Footer - Contact Page (Reusing General Footer Styles - No specific Contact Page Footer Styles needed) */
 
-footer p {
-    text-align: center;
-    color: #666;
-}
 
-/* Responsive Design */
+/* Responsive Design - Contact Page */
 @media (max-width: 768px) {
     .contact-form form .btn {
         font-size: 16px;
@@ -1032,7 +1039,7 @@ footer p {
 
 /* Testimonials Page Styles */
 
-/* Section Title */
+/* Section Title - Testimonials Page */
 .testimonials h2 {
     font-size: 32px;
     color: #004080;
@@ -1047,18 +1054,18 @@ footer p {
 }
 
 .testimonial-item {
-    display: none;
+    display: none; /* Hidden by default - JavaScript will show active one */
     text-align: center;
     padding: 20px;
 }
 
 .testimonial-item.active {
-    display: block;
-    animation: fadeIn 1s;
+    display: block; /* Shown by JavaScript when active */
+    animation: fadeIn 1s; /* Fade-in animation */
 }
 
 .testimonial-content {
-    position: relative;
+    position: relative; /* For quote icons positioning */
     font-size: 18px;
     color: #555;
     line-height: 1.6;
@@ -1082,10 +1089,11 @@ footer p {
     right: -10px;
 }
 
+/* Testimonial Footer (Photo and Info) */
 .testimonial-footer {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Vertically align photo and info */
+    justify-content: center; /* Center content horizontally */
 }
 
 .testimonial-photo {
@@ -1112,7 +1120,7 @@ footer p {
     color: #666;
 }
 
-/* Navigation Arrows */
+/* Navigation Arrows - Testimonial Slider */
 .testimonial-navigation {
     display: flex;
     justify-content: center;
@@ -1135,7 +1143,7 @@ footer p {
     color: #fff;
 }
 
-/* Navigation Dots */
+/* Navigation Dots - Testimonial Slider */
 .testimonial-dots {
     text-align: center;
     margin-top: 20px;
@@ -1153,22 +1161,22 @@ footer p {
 }
 
 .testimonial-dots span.active {
-    background-color: #004080;
+    background-color: #004080; /* Active dot color */
 }
 
-/* Animations */
+/* Animations - Testimonials Page */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Responsive Design */
+/* Responsive Design - Testimonials Page */
 @media (max-width: 768px) {
     .testimonial-footer {
-        flex-direction: column;
+        flex-direction: column; /* Stack photo and info on smaller screens */
     }
-    
+
     .testimonial-photo {
-        margin-bottom: 15px;
+        margin-bottom: 15px; /* Add margin below photo when stacked */
     }
 }
