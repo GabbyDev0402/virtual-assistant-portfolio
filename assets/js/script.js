@@ -193,31 +193,7 @@ function showModal(serviceKey) {
     });
 }
 
-// JavaScript for Project Filters
 
-// Get all filter buttons and project cards
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-// Filter Function
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove 'active' class from all buttons
-        filterBtns.forEach(button => button.classList.remove('active'));
-        // Add 'active' class to clicked button
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        projectCards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
 
 // JavaScript for Reveal Animations
 
